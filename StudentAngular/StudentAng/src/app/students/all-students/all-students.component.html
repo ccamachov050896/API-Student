@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-6">
+        <input type="text" #myInput [(ngModel)]="term" placeholder="Search by name" />
+
+    </div>
+    <div class="col-md-6">
+            <input type="text" #myInput [(ngModel)]="mark" placeholder="Marks greater than.."/>
+        </div>
+</div>
+<table class="table table-hover">
+    <tr>
+        <th>Student Name</th>
+        <th>Language & Arts</th>
+        <th>Science</th>
+        <th>Social Studies</th>
+        <th>Maths</th>
+    </tr>
+    <tr *ngFor="let stdn of service.list | filter: term: mark: subject ">
+        <td>{{ stdn.Student }}</td>
+        <td>{{ stdn.LanguageArts }}</td>
+        <td>{{ stdn.Science }}</td>
+        <td>{{ stdn.SocialStudies }}</td>
+        <td>{{ stdn.Maths }}</td>
+        <td><button (click)=" onDelete(stdn.Id)" class="btn btn-sm btn-outline-danger">Delete</button></td>
+    </tr>
+
+</table>
